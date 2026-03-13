@@ -20,7 +20,7 @@ function App() {
     setIsAutoPlaying(false);
 
     try {
-      const response = await fetch('/api/simplify', {
+      const response = await fetch('https://simplificationofcfgtool-1.onrender.com/api/simplify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
