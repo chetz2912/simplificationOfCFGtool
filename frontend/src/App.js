@@ -20,8 +20,8 @@ function App() {
     setIsAutoPlaying(false);
 
     try {
-      const response = await fetch('https://simplificationofcfgtool-1.onrender.com/api/simplify', {
-        method: 'POST',
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const response = await fetch(`${API_URL}/api/simplify`, {        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
