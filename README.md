@@ -26,6 +26,11 @@ A web application that demonstrates the process of simplifying context-free gram
 - **API Integration**: Communicates with backend via HTTP requests
 - **Responsive Design**: Works on desktop and mobile devices
 
+## Live Demo
+
+- Frontend: https://simplification-of-cf-gtool-git-main-chetz2912s-projects.vercel.app/
+- Backend API: https://simplificationofcfgtool-1.onrender.com
+
 ## Quick Start
 
 ### Backend Setup
