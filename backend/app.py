@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from routes.grammar_routes import grammar_bp
+import os
 
 def create_app():
     """Create and configure the Flask application."""
@@ -21,4 +22,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
