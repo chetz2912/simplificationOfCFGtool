@@ -27,9 +27,9 @@ A web application that demonstrates the process of simplifying context-free gram
 - **Responsive Design**: Works on desktop and mobile devices
 
 ## Live Demo
-
-- Frontend: https://simplification-of-cf-gtool-git-main-chetz2912s-projects.vercel.app/
-- Backend API: https://simplificationofcfgtool-1.onrender.com
+https://simplification-of-cf-gtool.vercel.app/
+-Frontend - Vercel 
+-Backend - Railway
 
 ## Quick Start
 
