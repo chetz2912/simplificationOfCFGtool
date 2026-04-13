@@ -26,6 +26,11 @@ A web application that demonstrates the process of simplifying context-free gram
 - **API Integration**: Communicates with backend via HTTP requests
 - **Responsive Design**: Works on desktop and mobile devices
 
+## Live Demo
+https://simplification-of-cf-gtool.vercel.app/
+-Frontend - Vercel 
+-Backend - Railway
+
 ## Quick Start
 
 ### Backend Setup
