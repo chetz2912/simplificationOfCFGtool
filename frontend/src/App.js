@@ -18,6 +18,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     setIsAutoPlaying(false);
+    setShowResults(false); // Reset to animation view for new grammar
 
     try {
       const response = await fetch('/api/simplify', {

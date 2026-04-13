@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function GrammarInput({ onSubmit, isLoading }) {
   const [formData, setFormData] = useState({
@@ -7,6 +7,8 @@ function GrammarInput({ onSubmit, isLoading }) {
     start_symbol: '',
     productions: ''
   });
+
+  const textareaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +46,27 @@ function GrammarInput({ onSubmit, isLoading }) {
     };
 
     onSubmit(grammarData);
+  };
+
+  const insertEpsilon = () => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = formData.productions;
+    const newText = text.substring(0, start) + 'ε' + text.substring(end);
+
+    setFormData(prev => ({
+      ...prev,
+      productions: newText
+    }));
+
+    // Reset cursor position after state update
+    setTimeout(() => {
+      textarea.focus();
+      textarea.setSelectionRange(start + 1, start + 1);
+    }, 0);
   };
 
   const loadExample = () => {
@@ -106,10 +129,21 @@ B: b`
         </div>
 
         <div className="form-group">
-          <label htmlFor="productions">Productions (one per line, use | for alternatives):</label>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+            <label htmlFor="productions" style={{ marginBottom: 0 }}>Productions (one per line, use | for alternatives):</label>
+            <button
+              type="button"
+              className="epsilon-btn"
+              onClick={insertEpsilon}
+              title="Insert epsilon (ε) symbol"
+            >
+              ε
+            </button>
+          </div>
           <textarea
             id="productions"
             name="productions"
+            ref={textareaRef}
             value={formData.productions}
             onChange={handleChange}
             className="form-input form-textarea"
